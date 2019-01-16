@@ -1,6 +1,6 @@
-class Loan {
+export class Loan {
     amount: number;
     interestRate: number;
     numOfYears: number;
-    TotalPaid: number;
+    totalPaid: number;
 }

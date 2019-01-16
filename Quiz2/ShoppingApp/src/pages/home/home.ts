@@ -20,8 +20,9 @@ export class HomePage {
   AddProduct() {
     this.http.post("http://localhost:5000/api/Shopping/AddItem", this.product)
       .subscribe(data => {
-        console.log("test");
+        console.log("test1");
       });
+    
   }
 }
 // this.products.ProductName = this.name;

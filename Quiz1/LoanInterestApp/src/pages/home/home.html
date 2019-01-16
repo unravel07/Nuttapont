@@ -5,24 +5,24 @@
 </ion-header>
 
 <ion-content padding>
+    <h2 style="margin-top: 10px;" padding-start>กำหนดดอกเบี้ย</h2>
   <ion-card padding>
     <ion-card-content>
       <ion-row>
-        <ion-col >
-          <h2>กำหนดอัตราดอกเบี้ย</h2>
+        <ion-col col-4 text-center>
+            <h3>อัตราดอกเบี้ย</h3>
+        </ion-col>
+        <ion-col color="dark" col-4 text-top>
+          <ion-input type="number" placeholder="จำนวนดอกเบี้ย" [(ngModel)]="interest" text-center></ion-input>
         </ion-col>
 
-        <ion-col color="dark" >
-          <ion-input type="number" placeholder="จำนวนสินค้า" [(ngModel)]="loan.interestRate"></ion-input>
-        </ion-col>
-
-        <ion-col>
+        <ion-col col-4 text-center>
           <h2>%</h2>
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <button ion-button color="secondary" block outline (click)="onClick()">
+        <button ion-button color="secondary" block (click)="setRate()">
           ยืนยัน
         </button>
       </ion-row>

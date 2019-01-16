@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>Buy</ion-title>
   </ion-navbar>
 
@@ -15,8 +15,13 @@
 
 <ion-content padding>
   <h2 style="margin-top: 10px;" padding-start>ซื้อสินค้า</h2>
-  <ion-card>
-    <ion-row>
+  <ion-card padding>
+    <ion-row text-center class="background" margin>
+      <ion-col col-4>ชื่อสินค้าสินค้า</ion-col>
+      <ion-col col-4>ราคาสินค้า</ion-col>
+      <ion-col col-4>จำนวนสินค้า</ion-col>
+    </ion-row>
+    <ion-row text-center>
       <ion-col col-4 align-self-center>
         {{product.ProductName}}
       </ion-col>
@@ -25,10 +30,13 @@
       </ion-col>
       <ion-col col-4 align-self-center>
         <ion-item no-lines>
-          <ion-label>จำนวน</ion-label>
-          <ion-input type="number" [(ngModel)]="amount"></ion-input>
+          <!-- <ion-label>จำนวน</ion-label> -->
+          <ion-input type="number" [(ngModel)]="amount" placeholder="กรอกจำนวน" text-center></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
   </ion-card>
+  <button padding ion-button color="secondaryBut" block (click)="AddCart()" text-center>
+    เพิ่มสินค้าใส่ตะกร้า
+  </button>
 </ion-content>

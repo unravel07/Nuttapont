@@ -8,39 +8,38 @@
 
 <ion-content>
   <ion-card padding>
-    <ion-card-content>
-      <ion-row>
-        <ion-col>
-          <h2>ระบุจำนวนเงิน</h2>
-        </ion-col>
 
-        <ion-col color="dark">
-          <ion-input type="number" placeholder="จำนวนสินค้า"></ion-input>
-        </ion-col>
+    <ion-row>
+      <ion-col>
+        <h2>ระบุจำนวนเงิน</h2>
+      </ion-col>
 
-        <ion-col>
-          <h2>%</h2>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <h2>ระบุจำนวนปี</h2>
-        </ion-col>
+      <ion-col color="dark">
+        <ion-input type="number" placeholder="จำนวนสินค้า" [(ngModel)]="loan.amount"></ion-input>
+      </ion-col>
 
-        <ion-col color="dark">
-          <ion-input type="number" placeholder="จำนวนสินค้า"></ion-input>
-        </ion-col>
+      <ion-col>
+        <h2>%</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>ระบุจำนวนปี</h2>
+      </ion-col>
 
-        <ion-col>
-          <h2>%</h2>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <button ion-button color="secondary" block outline>
-          ยืนยัน
-        </button>
-      </ion-row>
-    </ion-card-content>
+      <ion-col color="dark">
+        <ion-input type="number" placeholder="จำนวนสินค้า" [(ngModel)]="loan.numOfYears"></ion-input>
+      </ion-col>
+
+      <ion-col>
+        <h2>%</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <button ion-button color="secondary" (click)="CalLoan()" block outline>
+        ยืนยัน
+      </button>
+    </ion-row>
   </ion-card>
 
   <ion-card padding>
@@ -50,12 +49,15 @@
           รายละเอียดในแต่ละปี
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row *ngFor="let item of getloan;let i = index;">
         <ion-col>
-          ยอดที่ต้องชำระ
+          ปีที่ {{i+1}}
         </ion-col>
         <ion-col>
-
+          ยอดค้างชำระ
+        </ion-col>
+        <ion-col>
+          {{item.amount}}
         </ion-col>
       </ion-row>
     </ion-card-content>

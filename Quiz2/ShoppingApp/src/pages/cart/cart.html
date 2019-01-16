@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>Cart</ion-title>
   </ion-navbar>
 
@@ -16,29 +16,49 @@
 <ion-content padding>
   <h2 style="margin-top: 10px;" padding-start>สินค้าในตะกร้า</h2>
   <ion-card padding>
-    <ion-row text-center >
-      <ion-col col-2>ลำดับรายการสินค้า</ion-col>
-      <ion-col col-2>ชื่อสินค้า</ion-col>
-      <ion-col col-2>ราคาสินค้า</ion-col>
-      <ion-col col-2>จำนวน</ion-col>
-      <ion-col col-2>ยอดรวมราคา</ion-col>
-    </ion-row>
+    <ion-item>
+      <ion-row text-center>
+        <ion-col col-2>ลำดับรายการสินค้า</ion-col>
+        <ion-col col-3>ชื่อสินค้า</ion-col>
+        <ion-col col-3>ราคาสินค้า</ion-col>
+        <ion-col col-2>จำนวน</ion-col>
+        <ion-col col-2>ยอดรวมราคา</ion-col>
+      </ion-row>
+    </ion-item>
 
-    <div *ngFor="let data of cart;let i = index">
-        <ion-row text-center>
-            <ion-col col-2>สินค้าที่ {{i+1}}</ion-col>
-            <ion-col col-2>{{data.products.ProductName}}</ion-col>
-            <!-- <ion-col col-2>{{data.products.ProductName}}</ion-col>
-            <ion-col col-2>{{data.products.Price}}</ion-col>
-            <ion-col col-2>{{data.amount}}</ion-col>
-            <ion-col col-2>{{data.totalPrice}}</ion-col> -->
-          <!-- <ion-col>
-            <button ion-button (click)="purchase(data)">
-              <ion-icon name="ios-arrow-dropright-circle"></ion-icon>
-            </button>
-          </ion-col> -->
-        </ion-row>
-      </div>
+    <ion-item *ngFor="let data of cart;let i = index">
+      <ion-row text-center>
+        <ion-col col-2>สินค้าที่ {{i+1}}</ion-col>
+        <ion-col col-3>{{data.product.productName}}</ion-col>
+        <ion-col col-3>{{data.product.price}}</ion-col>
+        <ion-col col-2>{{data.amount}}</ion-col>
+        <ion-col col-2>{{data.totalPrice}}</ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-card>
+  <ion-card padding>
+    <ion-item>
+      <ion-row text-center>
+        <ion-col col-2>ส่วนลด</ion-col>
+        <ion-col col-3></ion-col>
+        <ion-col col-3></ion-col>
+        <ion-col col-2></ion-col>
+        <ion-col col-2>{{totalDis}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row text-center>
+        <ion-col col-2>ราคาสุทธื</ion-col>
+        <ion-col col-3></ion-col>
+        <ion-col col-3></ion-col>
+        <ion-col col-2></ion-col>
+        <ion-col col-2>{{totalP}}</ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+
   </ion-card>
 
 

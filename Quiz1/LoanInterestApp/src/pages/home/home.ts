@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-home',
@@ -8,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage {
 
-  public loan = new Loan;
-
+  //public loan: Loan = new Loan();
+  public interest: Number;
   constructor(public navCtrl: NavController, public http: HttpClient) {
-
+    //this.loan = new Loan();
   }
 
-  onClick() {
-    this.http.get("https://localhost:5001/api/Loan");
+  setRate() {
+    this.navCtrl.push(ContactPage, this.interest)
   }
 }

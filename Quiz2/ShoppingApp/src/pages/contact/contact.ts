@@ -25,7 +25,8 @@ export class ContactPage {
       });
   }
 
-  purchase(p: any) {
+  purchase(p: Product) {
+    console.log(p);
     this.navCtrl.push(BuyPage, p);
   }
 
