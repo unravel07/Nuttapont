@@ -14,30 +14,36 @@ namespace ShoppingAPI.Controllers
         public static List<Product> products = new List<Product>();
         public static List<Cart> carts = new List<Cart>();
         //public static List<Price> prices = new List<Price>();
-        
+
         // POST api/values
         [HttpPost]
-        public void AddOrder([FromBody] Cart cart)
+        public void AddOrder([FromBody]Cart cart)
         {
             var cal = new CalculatePrice();
-            cart.TotalPrice = cal.CalculateEachProduct(cart.Product.Price,cart.Amount);
+            cart.TotalPrice = cal.CalculateEachProduct(cart.Product.Price, cart.Amount);
             //cart.SumPrice = cal.CalculatePriceTotal(carts);
             cart.TotalDiscount = cal.CalculateDiscount(cart);
             //cart.TotalPriceFinal = cal.CalculateFinalPrice(carts);
 
             carts.Add(cart);
         }
+        [HttpPost]
+        public void AddItem([FromBody]Product data)
+        {
+            products.Add(data);
+        }
+
         [HttpGet]
         public double CalculatePriceTotal()
         {
-           var cal = new CalculatePrice();
-           return cal.CalculatePriceTotal(carts);
+            var cal = new CalculatePrice();
+            return cal.CalculatePriceTotal(carts);
         }
         [HttpGet]
         public double CalculateFinalPrice()
         {
-           var cal = new CalculatePrice();
-           return cal.CalculateFinalPrice(carts);
+            var cal = new CalculatePrice();
+            return cal.CalculateFinalPrice(carts);
         }
 
         [HttpGet]
@@ -50,5 +56,12 @@ namespace ShoppingAPI.Controllers
         {
             return products;
         }
+          [HttpDelete]
+        public void ClearCart()
+        {
+            products.RemoveAll(it => true);
+            carts.RemoveAll(it => true);
+        }
+        
     }
 }

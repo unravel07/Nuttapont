@@ -1,0 +1,45 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2 style="margin-top: 10px;" padding-start>สินค้าในตะกร้า</h2>
+  <ion-card padding>
+    <ion-row text-center >
+      <ion-col col-2>ลำดับรายการสินค้า</ion-col>
+      <ion-col col-2>ชื่อสินค้า</ion-col>
+      <ion-col col-2>ราคาสินค้า</ion-col>
+      <ion-col col-2>จำนวน</ion-col>
+      <ion-col col-2>ยอดรวมราคา</ion-col>
+    </ion-row>
+
+    <div *ngFor="let data of cart;let i = index">
+        <ion-row text-center>
+            <ion-col col-2>สินค้าที่ {{i+1}}</ion-col>
+            <ion-col col-2>{{data.products.ProductName}}</ion-col>
+            <!-- <ion-col col-2>{{data.products.ProductName}}</ion-col>
+            <ion-col col-2>{{data.products.Price}}</ion-col>
+            <ion-col col-2>{{data.amount}}</ion-col>
+            <ion-col col-2>{{data.totalPrice}}</ion-col> -->
+          <!-- <ion-col>
+            <button ion-button (click)="purchase(data)">
+              <ion-icon name="ios-arrow-dropright-circle"></ion-icon>
+            </button>
+          </ion-col> -->
+        </ion-row>
+      </div>
+  </ion-card>
+
+
+</ion-content>

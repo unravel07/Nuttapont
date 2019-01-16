@@ -5,5 +5,26 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <h2 style="margin-top: 10px;" padding-start>เพิ่มสินค้า</h2>
+  <ion-card padding>
+    <ion-row>
+      <ion-col col-3 align-self-center>
+        <ion-label no-padding class="text-header">ชื่อสินค้า</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-input type="text" placeholder="กรอกชื่อสินค้า" padding-start [(ngModel)]="product.ProductName"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 align-self-center>
+        <ion-label type="number" no-padding class="text-header" >ราคาสินค้าต่อหน่วย</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรอกราคาสินค้า" padding-start [(ngModel)]="product.Price"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <button ion-button color="secondary" block (click)="AddProduct()">
+    ยืนยัน
+  </button>
 </ion-content>
